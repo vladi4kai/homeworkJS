@@ -1,44 +1,40 @@
-//1
-var notation = 'Burger'
-let animal = 'Monkey'
-const numberOfBurgers = 12
-//2-3 task
-var stringType = 'Line'
-console.log(typeof stringType)
-stringType = Number(stringType)
-console.log(typeof stringType)
-
-let numberType = 232
-console.log(typeof numberType)
-numberType = String(numberType)
-console.log(typeof numberType)
-
-let booleanType = true
-console.log(typeof booleanType)
-booleanType = String(booleanType)
-console.log(typeof booleanType)
-
+//2
+let task2 = null
+console.log(task2)
 console.log(typeof null)
-console.log(typeof 20 / 0)
-console.log(typeof [1,2,3])
-function reverse(){}
-console.log(typeof reverse())
-// console.log(typeof ) = ERROR
-console.log(typeof moloko / 150)
-//4
-let priceOfArticle = 40
-let nameOfAcrticle = 'egg'
-let monthOfPurchase = 'july'
+//3
+let task3 
+console.log(task3)
+console.log(typeof undefined)
+//4 
+let task4First = 'Burger'
+let task4Second = 150
+let task4Three = task4First / task4Second
+console.log(task4Three)
+console.log(typeof NaN)
 
-priceOfArticle = 70
-monthOfPurchase = 'september'
+if (task4Three !== NaN){
+    console.log(true)
+} else {
+    console.log(false)
+}
 //5
-const amountOfArticle = 3
-const totalPrice = priceOfArticle * amountOfArticle
-console.log(totalPrice)
-//6
-const message = 'Я купив '+ amountOfArticle +' лотків за ціною '+ totalPrice +'. Ціна одного лотка становить '+ priceOfArticle +''
-console.log(message)
+let firstNumber = +prompt('Введіь перше число')
+let secondNumber = +prompt('Введіь друге число')
+let thirdNumber = +prompt('Введіь третє число')
+
+let result = firstNumber + secondNumber + thirdNumber
+console.log(result)
+
+function checkDataType(){
+    if (isNaN(result))
+        console.log('This is NaN')
+      else {
+        console.log('This is number')  
+    }
+}
+console.log(checkDataType())
+
 
 
 
