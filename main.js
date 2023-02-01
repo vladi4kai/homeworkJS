@@ -9,11 +9,11 @@ console.log(typeof undefined)
 //4 
 let task4First = 'Burger'
 let task4Second = 150
-let task4Three = task4First / task4Second
+let task4Three =  task4First / task4Second
 console.log(task4Three)
 console.log(typeof NaN)
 
-if (task4Three !== NaN){
+if (isNaN(task4Three)){
     console.log(true)
 } else {
     console.log(false)
