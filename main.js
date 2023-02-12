@@ -1,142 +1,101 @@
-// //1
-// let number1 = 5, number2 = 6
+//1
 
-// console.log(number1 > number2)
-// console.log(number1 < number2)
-// console.log(number1 >= number2)
-// console.log(number1 <= number2)
-
-// //2
-// let number3 = "1", number4 = 1
-
-// console.log(number3 == number4)
-// console.log(number3 === number4)
-// console.log(number3 != number4)
-// console.log(number3 !== number4)
-// console.log(number3 == !number4)
-// console.log(!!number3)
-
-// //3
-// console.log(0 == false)
-// console.log(0 === false)
-// console.log(1 == '1')
-// console.log(1 === '1')
-// console.log(null == undefined)
-// console.log(null === undefined)
-// console.log('0' == false)
-// console.log('0' === false)
-// console.log([] == [])
-// console.log([] === [])
-// console.log({} == {})
-// console.log({} === {})
-// //4
-// if (number1 === number2) {
-//     console.log('Ці змінні рівні')
-// } else {
-//     console.log('Ні, вони не рівні')
+// let arrOne = [1, 2, 3, 4, 5]
+// let reversed = []
+// function arrayReverser(arrOne){
+//     for (i = 0; i < arrOne.length; i++){
+//         reversed[i] = arrOne[arrOne.length - 1 - i]
+//     }
+//     return reversed
 // }
+// arrayReverser(arrOne)
+// console.log(reversed)
 
-// number1 = 4
+//2
 
-// switch(number1){
-//     case 5: 
-//         console.log('Змінна рівна 5')
-//         break;
-//     case 4:
-//         console.log('Змінна менша 5')
-//         break;
-//     default:
-//         console.log('Кейси не виконуються')
+// let arrTwo = [0, 1, false, 2, undefined, '', 3, null]
+// let filtredArray = arrTwo.filter(filtredElement => filtredElement > false)
+// console.log(filtredArray)
+
+//3
+
+// let arrThree = [1, 6, 22, 31, 11, 59, 44, 2, 8, 9]
+// let doubleNumbers = arrThree.filter(num1 => num1 % 2 == 0)
+// console.log(doubleNumbers)
+// let otherNumbers = arrThree.filter(num2 => num2 % 2 == 1)
+// console.log(otherNumbers)
+
+//4
+
+// let array = [1, 'string', null, false, undefined, {age: 18}, Symbol('foo'), 554324n]
+// let numberType = []
+// let stringType = []
+// let booleanType = []
+// let undefinedType = []
+// let objectType = []
+// let symbolType = []
+// let bigintType = []
+// for (let i = 0; i < array.length; i++) {
+//     if(typeof array[i] === 'number'){
+//          numberType.push(array[i])
+//      } else if (typeof array[i] === 'string'){
+//          stringType.push(array[i])
+//      } else if (typeof array[i] === 'boolean'){
+//          booleanType.push(array[i])
+//      } else if (typeof array[i] === 'undefined'){
+//          undefinedType.push(array[i])
+//      } else if (typeof array[i] === 'object'){
+//          objectType.push(array[i])
+//      } else if (typeof array[i] === 'symbol'){
+//          symbolType.push(array[i])
+//      } else if (typeof array[i] === 'bigint'){
+//          bigintType.push(array[i])
+//      }
 // }
+// console.log(numberType)
+// console.log(stringType)
+// console.log(booleanType)
+// console.log(undefinedType)
+// console.log(objectType)
+// console.log(symbolType)
+// console.log(bigintType)
 
-// number1 == 4 ? console.log('variable number1 equal 4') : console.log('lie')
+//5
 
-// //6
-// let name = 'Vlad', age = 19
-// if (age < 18){
-//     console.log(name + ' is under 18 years old')
+// let unsortedArray = [3, 8, 7, 6, 5, -4, 1, -3, 2]
+// function sort(a, b){
+//     return a - b // щоб зробити сортування від більшого до меншого треба поміняти операнди на b - a
 // }
-// if (age > 18 && age <= 22){
-//     console.log(name + ' is between the ages 18 and 22')
-// } else {
-//     console.log('Your age is over 22 years old')
-// }
-// 7
-// const number = +prompt('Enter a number from 0 to 3')
-// switch(number){
-//     case 0:
-//         alert('you entered the number 0')
-//         break;
-//     case 1:
-//         alert('you entered the number 1')
-//         break;
-//     case 2 || 3:
-//         alert('you entered the number 2 or maybe the number 3')
-//         break;
-//     default:
-//         alert('none')   
-// }
-// //8
+// unsortedArray.sort(sort)
+// console.log(unsortedArray)
 
-// age >= 18 ? console.log('Can vote') : console.log('Cannot vote')
+//6
 
-//9
-let result
-let numberInputOne = +prompt('Введіть перше число')
-let numberInputTwo = +prompt('Введіть друге число')
+// let arr1 = [1, 2, 3]
+// let arr2 = [100, 2, 1, 10]
+// let sumOfArrays = (new Set(arr1.concat(arr2)))
+// // set дозволяє зберігати унікальні значення
+// console.log(sumOfArrays)
 
-if (numberInputOne == '' || numberInputTwo == ''){
-    console.log('error')
-} else if(isNaN(numberInputOne) || isNaN(numberInputTwo)){
-    console.log('error')
-} else if (numberInputOne <= 0 || numberInputTwo <= 0){
-    console.log('error')
-} else {
-    result = numberInputOne + numberInputTwo
-    console.log(numberInputOne + '+' + numberInputTwo + '=' + result)
-} 
+//7
 
+let arr7 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]
+let defaultMaximumCounter = 1
+let currentCounterPoint = 0
+let theMostElement
 
-if (numberInputOne > 5 && numberInputOne < 10){
-    console.log(numberInputOne + ' - ваше перше число більше 5, але менше 10')
-} else {
-    if (numberInputOne > 15 && numberInputOne < 30){
-        console.log(numberInputOne + ' - ваше перше число більше 15, але менше 30')
-    } else {
-        if (numberInputOne > 30){
-            console.log(numberInputOne + ' - ваше перше число більше 30')
+for (let i = 0; i < arr7.length; i++){
+    for (let j = i; j < arr7.length; j++){ // нам потрібні два цикли щоб простіше реалізувати порівняння і обчислити частоту і сам елемент який повторюється
+        if (arr7[i] == arr7[j]){ // саме перевірка заради якої потрібні два цикли, чи повторюється елемент, якщо так то рахівнику плюсуємо одиничку
+            currentCounterPoint+=1
+        } else if (defaultMaximumCounter < currentCounterPoint) { // якщо наш рахівник стає більшим за дефолтне значення елемента в масиві(1) то ми зберігаємо значення рахівника в дефолтному значенні
+            defaultMaximumCounter = currentCounterPoint
+            theMostElement = arr7[i] // зберігаємо чи визначаємо  найчастіший елемент виходячи з перевірок
         }
     }
+    currentCounterPoint = 0 // обнуляємо рахівник(обовязкова дія) інакше буде 29 було використано 29 разів
 }
-if (numberInputTwo > 5 && numberInputTwo < 10){
-    console.log(numberInputTwo + ' - ваше друге число більше 5, але менше 10')
-} else {
-    if (numberInputTwo > 15 && numberInputTwo < 30){
-        console.log(numberInputTwo + ' - ваше друге число більше 15, але менше 30')
-    } else {
-        if (numberInputTwo > 30){
-            console.log(numberInputTwo + ' - ваше друге число більше 30')
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log('Найчастіший елемент ' + theMostElement + ' був використаний ' + defaultMaximumCounter + ' разiв')
 
 
 
