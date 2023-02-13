@@ -1,14 +1,13 @@
 //1
 
 // let arrOne = [1, 2, 3, 4, 5]
+// let a = 0
 // let reversed = []
-// function arrayReverser(arrOne){
-//     for (i = 0; i < arrOne.length; i++){
-//         reversed[i] = arrOne[arrOne.length - 1 - i]
-//     }
-//     return reversed
+//
+// for (let i = arrOne.length - 1; i >= 0; i--){
+//     reversed[a] = arrOne[i]
+//     a++
 // }
-// arrayReverser(arrOne)
 // console.log(reversed)
 
 //2
@@ -79,7 +78,7 @@
 
 //7
 
-let arr7 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]
+let arr7 = [2,2,2,'3',2,2,'a','a','a','a',false,false,'a','a','a','a','a',false,false,false,false,false,false,3,3,5,'a','a','a']
 let defaultMaximumCounter = 1
 let currentCounterPoint = 0
 let theMostElement
@@ -87,9 +86,9 @@ let theMostElement
 for (let i = 0; i < arr7.length; i++){
     for (let j = i; j < arr7.length; j++){ // нам потрібні два цикли щоб простіше реалізувати порівняння і обчислити частоту і сам елемент який повторюється
         if (arr7[i] == arr7[j]){ // саме перевірка заради якої потрібні два цикли, чи повторюється елемент, якщо так то рахівнику плюсуємо одиничку
-            currentCounterPoint+=1
+            currentCounterPoint++
         } else if (defaultMaximumCounter < currentCounterPoint) { // якщо наш рахівник стає більшим за дефолтне значення елемента в масиві(1) то ми зберігаємо значення рахівника в дефолтному значенні
-            defaultMaximumCounter = currentCounterPoint
+            defaultMaximumCounter = currentCounterPoint // обовязково порівнюєм в цьому була помилка
             theMostElement = arr7[i] // зберігаємо чи визначаємо  найчастіший елемент виходячи з перевірок
         }
     }
