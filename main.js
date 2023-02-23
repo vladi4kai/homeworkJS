@@ -1,101 +1,135 @@
 //1
-
-// let arrOne = [1, 2, 3, 4, 5]
-// let a = 0
-// let reversed = []
-//
-// for (let i = arrOne.length - 1; i >= 0; i--){
-//     reversed[a] = arrOne[i]
-//     a++
-// }
-// console.log(reversed)
+function makeOrderMessage(orderedQuantity, pricePerDroid, deliveryFree){
+    let totalOrderPrice = orderedQuantity + pricePerDroid + deliveryFree
+    return('You ordered droids worth ' + totalOrderPrice + ' credits.' + ' Delivery ' + deliveryFree + ' credits is included in total price')
+}
+console.log(makeOrderMessage(20,5,50))
 
 //2
 
-// let arrTwo = [0, 1, false, 2, undefined, '', 3, null]
-// let filtredArray = arrTwo.filter(filtredElement => filtredElement > false)
-// console.log(filtredArray)
+function isAdult(age){
+    let passed = (age >= 18)
+    return passed
+}
+console.log(isAdult(19))
 
 //3
 
-// let arrThree = [1, 6, 22, 31, 11, 59, 44, 2, 8, 9]
-// let doubleNumbers = arrThree.filter(num1 => num1 % 2 == 0)
-// console.log(doubleNumbers)
-// let otherNumbers = arrThree.filter(num2 => num2 % 2 == 1)
-// console.log(otherNumbers)
+function checkAge(age1){
+    let message
+
+    if ((age1 >= 18)){
+        message = 'You are an adult'
+    } else {
+        message = 'You are a minor'
+    }
+
+    return message
+}
+console.log(checkAge(17))
 
 //4
 
-// let array = [1, 'string', null, false, undefined, {age: 18}, Symbol('foo'), 554324n]
-// let numberType = []
-// let stringType = []
-// let booleanType = []
-// let undefinedType = []
-// let objectType = []
-// let symbolType = []
-// let bigintType = []
-// for (let i = 0; i < array.length; i++) {
-//     if(typeof array[i] === 'number'){
-//          numberType.push(array[i])
-//      } else if (typeof array[i] === 'string'){
-//          stringType.push(array[i])
-//      } else if (typeof array[i] === 'boolean'){
-//          booleanType.push(array[i])
-//      } else if (typeof array[i] === 'undefined'){
-//          undefinedType.push(array[i])
-//      } else if (typeof array[i] === 'object'){
-//          objectType.push(array[i])
-//      } else if (typeof array[i] === 'symbol'){
-//          symbolType.push(array[i])
-//      } else if (typeof array[i] === 'bigint'){
-//          bigintType.push(array[i])
-//      }
-// }
-// console.log(numberType)
-// console.log(stringType)
-// console.log(booleanType)
-// console.log(undefinedType)
-// console.log(objectType)
-// console.log(symbolType)
-// console.log(bigintType)
+let array = []
+let numberType = []
+let stringType = []
+let booleanType = []
+let undefinedType = []
+let objectType = []
+let symbolType = []
+let bigintType = []
+function dataTypeSort(array) {
+    for (let i = 0; i < array.length; i++) {
+        if (typeof array[i] === 'number') {
+            numberType.push(array[i])
+        } else if (typeof array[i] === 'string') {
+            stringType.push(array[i])
+        } else if (typeof array[i] === 'boolean') {
+            booleanType.push(array[i])
+        } else if (typeof array[i] === 'undefined') {
+            undefinedType.push(array[i])
+        } else if (typeof array[i] === 'object') {
+            objectType.push(array[i])
+        } else if (typeof array[i] === 'symbol') {
+            symbolType.push(array[i])
+        } else if (typeof array[i] === 'bigint') {
+            bigintType.push(array[i])
+        }
+    }
+    return array
+}
+console.log(dataTypeSort([false, undefined, 'shake', {age: 19}]))
+console.log(booleanType)
+console.log(undefinedType)
+console.log(stringType)
+console.log(objectType)
 
 //5
 
-// let unsortedArray = [3, 8, 7, 6, 5, -4, 1, -3, 2]
-// function sort(a, b){
-//     return a - b // щоб зробити сортування від більшого до меншого треба поміняти операнди на b - a
-// }
-// unsortedArray.sort(sort)
-// console.log(unsortedArray)
+function myNumber(number) {
+    let doubleNumbers = 0
+    let otherNumbers = 0
+    number.toString().split('').forEach((splitNum) => {
+        if (splitNum % 2 === 0) {
+            doubleNumbers++
+        } else {
+            otherNumbers++
+        }
+    })
+    return [doubleNumbers, otherNumbers]
+}
+console.log(myNumber(5345575478))
 
 //6
 
-// let arr1 = [1, 2, 3]
-// let arr2 = [100, 2, 1, 10]
-// let sumOfArrays = (new Set(arr1.concat(arr2)))
-// // set дозволяє зберігати унікальні значення
-// console.log(sumOfArrays)
 
-//7
 
-let arr7 = [2,2,2,'3',2,2,'a','a','a','a',false,false,'a','a','a','a','a',false,false,false,false,false,false,3,3,5,'a','a','a']
-let defaultMaximumCounter = 1
-let currentCounterPoint = 0
-let theMostElement
+let inputOne
+let inputTwo
+function firstAction() {
 
-for (let i = 0; i < arr7.length; i++){
-    for (let j = i; j < arr7.length; j++){ // нам потрібні два цикли щоб простіше реалізувати порівняння і обчислити частоту і сам елемент який повторюється
-        if (arr7[i] == arr7[j]){ // саме перевірка заради якої потрібні два цикли, чи повторюється елемент, якщо так то рахівнику плюсуємо одиничку
-            currentCounterPoint++
-        } else if (defaultMaximumCounter < currentCounterPoint) { // якщо наш рахівник стає більшим за дефолтне значення елемента в масиві(1) то ми зберігаємо значення рахівника в дефолтному значенні
-            defaultMaximumCounter = currentCounterPoint // обовязково порівнюєм в цьому була помилка
-            theMostElement = arr7[i] // зберігаємо чи визначаємо  найчастіший елемент виходячи з перевірок
+    inputOne = +prompt('Ваше число')
+
+    if (inputOne == '') {
+        alert('error')
+    } else if (isNaN(inputOne)) {
+        alert('error')
+    } else if (inputOne <= 0) {
+        alert('error')
+    } else {
+        secondAction()
+    }
+}
+firstAction()
+function secondAction(){
+
+    inputTwo = +prompt('Ваше число в межах 10 одиниць від попереднього')
+
+    if (inputTwo == '') {
+        alert('error')
+    } else if (isNaN(inputTwo)) {
+        alert('error')
+    } else if (inputTwo <= 0) {
+        alert('error')
+    } else if (inputTwo <= (inputOne+10)) {
+        thirdAction()
+    } else {
+        alert('Спробуйте знову')
+        firstAction()
+    }
+}
+function thirdAction(){
+    let loseConfirmer
+    for (let numberOfAttempts = 5; numberOfAttempts => 1; numberOfAttempts--){
+        let inputThree = +prompt('Вгадати число, яке знаходиться в діапазоні між першими двома введеними числами. Кількість спроб ' + numberOfAttempts)
+        if (inputThree >= inputOne && inputThree <= inputTwo){
+            alert('Ви перемогли'); break
+        } else if (numberOfAttempts === 1){
+            loseConfirmer = confirm('Спроби закінчились, хочете зіграти ще?')
+        }
+        if (loseConfirmer === true){
+            firstAction()
         }
     }
-    currentCounterPoint = 0 // обнуляємо рахівник(обовязкова дія) інакше буде 29 було використано 29 разів
 }
-console.log('Найчастіший елемент ' + theMostElement + ' був використаний ' + defaultMaximumCounter + ' разiв')
-
-
-
 
