@@ -1,135 +1,125 @@
 //1
-function makeOrderMessage(orderedQuantity, pricePerDroid, deliveryFree){
-    let totalOrderPrice = orderedQuantity + pricePerDroid + deliveryFree
-    return('You ordered droids worth ' + totalOrderPrice + ' credits.' + ' Delivery ' + deliveryFree + ' credits is included in total price')
+
+// Масив який треба сортувати
+let arrayOne = [1, 6, 3, 8, 7, 9, 10]
+
+// По зростанню
+
+function sorterOne(a, b){
+    return a - b
 }
-console.log(makeOrderMessage(20,5,50))
+arrayOne.sort(sorterOne)
+console.log(arrayOne)
+
+// По спаданню
+
+function sorterTwo(c, d){
+    return d - c
+}
+arrayOne.sort(sorterTwo)
+console.log(arrayOne)
 
 //2
+// Метод перший - самий кращий та зрозумілий
 
-function isAdult(age){
-    let passed = (age >= 18)
-    return passed
-}
-console.log(isAdult(19))
+let unfiltredArray = [1,2,[3,4],[5,[6,7]]]
+let filtredArrayOne = unfiltredArray.flat(2)
+
+console.log(filtredArrayOne)
+
+// Метод два - через метод flatMap
+
+let filtredArrayTwo = unfiltredArray.flatMap(arrFilter => Array.isArray(arrFilter) ? arrFilter : [arrFilter]).flat()
+console.log(filtredArrayTwo)
 
 //3
 
-function checkAge(age1){
-    let message
+let arrThree = [1,3,3,6,8,6,1]
 
-    if ((age1 >= 18)){
-        message = 'You are an adult'
-    } else {
-        message = 'You are a minor'
-    }
-
-    return message
-}
-console.log(checkAge(17))
+let arrThreeUniqueItems = new Set(arrThree)
+console.log(arrThreeUniqueItems)
 
 //4
 
-let array = []
-let numberType = []
-let stringType = []
-let booleanType = []
-let undefinedType = []
-let objectType = []
-let symbolType = []
-let bigintType = []
-function dataTypeSort(array) {
-    for (let i = 0; i < array.length; i++) {
-        if (typeof array[i] === 'number') {
-            numberType.push(array[i])
-        } else if (typeof array[i] === 'string') {
-            stringType.push(array[i])
-        } else if (typeof array[i] === 'boolean') {
-            booleanType.push(array[i])
-        } else if (typeof array[i] === 'undefined') {
-            undefinedType.push(array[i])
-        } else if (typeof array[i] === 'object') {
-            objectType.push(array[i])
-        } else if (typeof array[i] === 'symbol') {
-            symbolType.push(array[i])
-        } else if (typeof array[i] === 'bigint') {
-            bigintType.push(array[i])
-        }
-    }
-    return array
+let arrFour = [1, 6, 8, 6, 1]
+
+for (let i = 0; i < arrFour.length; i++){
+    arrFour[i]+=5
 }
-console.log(dataTypeSort([false, undefined, 'shake', {age: 19}]))
-console.log(booleanType)
-console.log(undefinedType)
-console.log(stringType)
-console.log(objectType)
+console.log(arrFour)
+
+let arrFourSum = 0
+
+for (let i = 0; i < arrFour.length; i++){
+    arrFourSum += arrFour[i]
+}
+console.log(arrFourSum)
 
 //5
 
-function myNumber(number) {
-    let doubleNumbers = 0
-    let otherNumbers = 0
-    number.toString().split('').forEach((splitNum) => {
-        if (splitNum % 2 === 0) {
-            doubleNumbers++
-        } else {
-            otherNumbers++
-        }
-    })
-    return [doubleNumbers, otherNumbers]
-}
-console.log(myNumber(5345575478))
+let five = 6
+// створюємо масив від 1 до 6 через map. перед тим присвоєїм нашій змінній масив
+let arrFiveTwo = new Array(five).fill().map((value, i) => i + 1)
+console.log(arrFiveTwo)
+// обчислюємо факторіал
+let factorial = arrFiveTwo.reduce((a, b) => a * b)
+console.log(factorial)
 
 //6
 
+function palindrome(anyWord){
+    anyWord = anyWord.toLowerCase()
 
+    let reverseItem = anyWord.split('').reverse().join('')
 
-let inputOne
-let inputTwo
-function firstAction() {
-
-    inputOne = +prompt('Ваше число')
-
-    if (inputOne == '') {
-        alert('error')
-    } else if (isNaN(inputOne)) {
-        alert('error')
-    } else if (inputOne <= 0) {
-        alert('error')
-    } else {
-        secondAction()
-    }
+    return anyWord === reverseItem
 }
-firstAction()
-function secondAction(){
+console.log(palindrome('racecar'))
+console.log(palindrome('Анна'))
+console.log(palindrome('cat'))
 
-    inputTwo = +prompt('Ваше число в межах 10 одиниць від попереднього')
+//7
 
-    if (inputTwo == '') {
-        alert('error')
-    } else if (isNaN(inputTwo)) {
-        alert('error')
-    } else if (inputTwo <= 0) {
-        alert('error')
-    } else if (inputTwo <= (inputOne+10)) {
-        thirdAction()
-    } else {
-        alert('Спробуйте знову')
-        firstAction()
+function anagrammaChecker(wordA, wordB){
+    if (wordA.length !== wordB.length){
+        return false
     }
+    wordA = wordA.toLowerCase()
+    wordB = wordB.toLowerCase()
+    wordA = wordA.split('').sort().join('')
+    wordB = wordB.split('').sort().join('')
+
+    return wordA === wordB
 }
-function thirdAction(){
-    let loseConfirmer
-    for (let numberOfAttempts = 5; numberOfAttempts => 1; numberOfAttempts--){
-        let inputThree = +prompt('Вгадати число, яке знаходиться в діапазоні між першими двома введеними числами. Кількість спроб ' + numberOfAttempts)
-        if (inputThree >= inputOne && inputThree <= inputTwo){
-            alert('Ви перемогли'); break
-        } else if (numberOfAttempts === 1){
-            loseConfirmer = confirm('Спроби закінчились, хочете зіграти ще?')
-        }
-        if (loseConfirmer === true){
-            firstAction()
+console.log(anagrammaChecker('friend', 'finder'))
+console.log(anagrammaChecker('sharm', 'marsh'))
+console.log(anagrammaChecker('cat', 'dog'))
+
+
+//8
+
+function checkVowelOrConsonent(array){
+    let arrVowel = []
+    let arrConsonent = []
+    for (let i = 0; i < array.length; i++){
+        if (['a','e','i','o','u'].includes(array[i].toLowerCase())){
+            arrVowel.push(array[i])
+        } else {
+            arrConsonent.push(array[i])
         }
     }
+    arrVowel.sort()
+    arrConsonent.sort()
+
+    arrVowel.push(arrVowel.length)
+    arrConsonent.push(arrConsonent.length)
+
+    return [arrVowel, arrConsonent]
 }
+console.log(checkVowelOrConsonent(['a', 'f', 'd', 'j', 'y', 't', 'i', 'r']))
+
+
+
+
+
 
